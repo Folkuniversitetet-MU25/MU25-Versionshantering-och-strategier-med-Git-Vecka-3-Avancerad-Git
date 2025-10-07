@@ -2,12 +2,15 @@
 
 **Mål:** Flytta en specifik fix mellan två grenar utan att mergea allt.
 
-## Förbered
-- Se till att repot har `main`. Skapa också `release/1.0` från `main` (en gång):
+> **Arbeta i ditt eget repo.** PR öppnas i ditt repo.
+
+## Förbered (en gång)
+Skapa en release-gren från `main`:
 git checkout main
 git checkout -b release/1.0
 git push -u origin release/1.0
 git checkout main
+
 
 ## Uppgift
 1. På `main`: gör en liten buggfix och committa (ex: `fix: null-check in login`).
