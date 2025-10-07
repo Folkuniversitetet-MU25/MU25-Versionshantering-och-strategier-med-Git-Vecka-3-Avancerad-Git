@@ -21,7 +21,7 @@ Målet är att bli trygg i de vanligaste “rädda-läget”-scenarierna och att
 3. Följ instruktionerna i respektive övning.  
 4. Öppna **en PR per övning i ditt eget repo** och använd gärna [PR-mallen](/pull_request_template.md)
 5. (Frivilligt) Be **minst en klasskamrat** reviewa varje PR. Svara på feedback.
-6. 5. Merg(a) när PR är godkänd (Squash & merge är OK för ren historik).
+6. Merg(a) när PR är godkänd (Squash & merge är OK för ren historik).
 
 ## Förutsättningar
 - Git installerat och konfigurerat (`user.name`, `user.email`, `init.defaultBranch=main`)
