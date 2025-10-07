@@ -6,11 +6,12 @@
 
 ## Förbered (en gång)
 Skapa en release-gren från `main`:
+```bash
 git checkout main
 git checkout -b release/1.0
 git push -u origin release/1.0
 git checkout main
-
+```
 
 ## Uppgift
 1. På `main`: gör en liten buggfix och committa (ex: `fix: null-check in login`).
