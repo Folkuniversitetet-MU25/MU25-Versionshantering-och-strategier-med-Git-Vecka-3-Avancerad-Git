@@ -5,7 +5,10 @@
 > **Arbeta i ditt eget repo.** PR öppnas i ditt repo.
 
 ## Förbered
-1. Skapa (om den inte finns) filen `bio.txt` med en rad: Favorite color: blue
+1. Skapa (om den inte finns) filen `bio.txt` med en rad:
+```txt
+Favorite color: blue
+```
 2. Skapa två branches:
 - `feat/change-color-a` som ändrar raden till `Favorite color: green`
 - `feat/change-color-b` som ändrar raden till `Favorite color: red`
