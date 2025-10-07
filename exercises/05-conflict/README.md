@@ -2,6 +2,8 @@
 
 **Mål:** Medvetet skapa en mergekonflikt och lösa den korrekt.
 
+> **Arbeta i ditt eget repo.** PR öppnas i ditt repo.
+
 ## Förbered
 1. Skapa (om den inte finns) filen `bio.txt` med en rad: Favorite color: blue
 2. Skapa två branches:
@@ -16,5 +18,5 @@
 5. Öppna PR och skriv i kommentaren **hur** du resonerade (vad behölls, varför).
 
 ## Godkänt när
-- Konflikten är korrekt löst och beskrivs i PR-kommentaren.
-- **Minst 1 review** inkommen.
+- [ ]  Konflikten är korrekt löst och beskrivs i PR-kommentaren.
+- [ ] PR kommenterar resonemanget 
