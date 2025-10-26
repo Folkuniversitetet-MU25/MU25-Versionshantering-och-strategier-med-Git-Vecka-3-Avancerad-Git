@@ -7,8 +7,9 @@
 👨‍🏫 Lärare: Mandus Lindström
 💡 Fokus: Konflikter, merge-verktyg, ångra med Git, rebase & case-studier
 
---------------------------------------------------
---------------------------------------------------
+---
+
+---
 
 🎯 Lektionsmål
 
@@ -22,8 +23,9 @@ Förstå när och varför man använder olika strategier för att ångra förän
 
 Visa förmåga att samarbeta i ett repo och hantera problem i versionshantering.
 
---------------------------------------------------
---------------------------------------------------
+---
+
+---
 
 📝 Lektionsplanering (3 timmar)
 
@@ -34,19 +36,22 @@ Visa förmåga att samarbeta i ett repo och hantera problem i versionshantering.
 – PowerPoint & Teori (Slides 65-83)
 
 – Demo / Code-Along: Konflikt i realtid
-  - Innehåll: Läraren visar: två brancher → merge → konflikt → lösning i VS Code.
-  - Syfte: Se processen i praktiken.
+
+- Innehåll: Läraren visar: två brancher → merge → konflikt → lösning i VS Code.
+- Syfte: Se processen i praktiken.
 
 – Demo 2 / Code-Along 2: Revert vs Reset
-  - Innehåll: Visa skillnad före/efter push. Visa effekten på commit-historik.
-  - Syfte: Förstå riskerna och rätt val av verktyg.
+
+- Innehåll: Visa skillnad före/efter push. Visa effekten på commit-historik.
+- Syfte: Förstå riskerna och rätt val av verktyg.
 
 – Demo 3 / Code-Along 3: Mini-case: Rebase och Stash
- - Innehåll: 
+
+- Innehåll:
   • Rebase i egen branch (squash, reorder)
   • Stash/unstash WIP
   • Reset vs revert case-study
-  - Syfte: Tillämpa avancerade Git-funktioner.
+- Syfte: Tillämpa avancerade Git-funktioner.
 
 – Övningar: Studenterna jobbar i par/grupp.
 
@@ -65,21 +70,22 @@ Hur återhämtar du dig om något går fel? (hint: git reflog)
 🗣️ Mikro-talktrack (lärarstöd – håll för dig själv)
 
 • När väljer jag revert framför reset?
-  → Efter push / på delad historik – bevara historik, ångra säkert.
+→ Efter push / på delad historik – bevara historik, ångra säkert.
 
 • Vad gör `git rebase -i` som merge inte gör?
-  → Städar min egen feature-branchs historia (reorder/squash/reword) innan den möter main.
+→ Städar min egen feature-branchs historia (reorder/squash/reword) innan den möter main.
 
 • Hur ser jag att en konflikt är löst i `git status`?
-  → Filer går från “both modified” → staged och `status` visar inga “unmerged paths”.
+→ Filer går från “both modified” → staged och `status` visar inga “unmerged paths”.
 
 • Hur återhämtar jag mig om något går fel?
-  → `git reflog` för att hitta tidigare läge → ev. `git reset --hard HEAD@{n}` (endast lokalt/opushat).
+→ `git reflog` för att hitta tidigare läge → ev. `git reset --hard HEAD@{n}` (endast lokalt/opushat).
 
 — — — — — — — — — — — — — — — — —
 
---------------------------------------------------
---------------------------------------------------
+---
+
+---
 
 📢 PowerPoint – Talarmanus:
 
@@ -296,23 +302,24 @@ Fördjupning:
 Det är en sammanställning av alla Git-kommandon vi använt hittills.
 Perfekt att spara som referens när ni jobbar i riktiga projekt.
 
---------------------------------------------------
---------------------------------------------------
+---
 
-Förberedelser: "Rekommenderad setup före lektionen"
+---
+
+Förberedelser: Rekommenderad setup före lektionen
 
 Det här är inställningar i Git som hjälper dig och studenterna att slippa vanliga problem.
 
-Du kan lägga detta i början av din mondayAgenda.txt under rubriken "Förberedelser".
-
-# Förberedelser (läraren kör innan lektionen startar)
-
 # 1. Se till att Git inte försöker rebase automatiskt vid pull.
-#    Vi vill hålla det enkelt för nybörjare → merge istället.
+
+# Vi vill hålla det enkelt för nybörjare → merge istället.
+
 git config --global pull.rebase false
 
 # 2. Gör så att rebase automatiskt placerar "fixup!" och "squash!" commits rätt.
-#    Det här hjälper när man kör interaktiv rebase (senare i lektionen).
+
+# Det här hjälper när man kör interaktiv rebase (senare i lektionen).
+
 git config --global rebase.autosquash true
 
 # 3. Hanterar radbrytningar mellan Windows/Mac/Linux.
@@ -320,30 +327,32 @@ git config --global rebase.autosquash true
 Välj EN av dessa:
 
 # (Windows) undvik CRLF/LF-strul i diffar
+
 git config --global core.autocrlf true
 
 # (macOS/Linux) behåll LF, konvertera input
+
 git config --global core.autocrlf input
 
 # 4. Kolla att Git funkar.
+
 git --version
 
 💡 Varför:
 Dessa rader ger en stabil, förutsägbar miljö inför lektionen – så att git pull inte oväntat rebasar, och VS Code inte visar diffar p.g.a. radbrytningar.
 
---------------------------------------------------
---------------------------------------------------
+---
+
+---
 
 🆘 Panik-knappar / Återhämtning i Git
 
-Detta är en hjälpruta du kan visa eller läsa upp under lektionen när något går fel (t.ex. någon fastnar i rebase eller merge).
-Det är inte kod ni ska göra nu, utan räddningslinor om ni råkar låsa Git.
+Detta visar du när något går fel (t.ex. någon fastnar i rebase eller merge).
 
---- 
-
-Om något låser sig (t.ex. pågår en merge eller rebase och inget verkar fungera):
+---
 
 # Avbryt pågående operation:
+
 git merge --abort
 git rebase --abort
 git cherry-pick --abort
@@ -353,10 +362,12 @@ git cherry-pick --abort
 Om du vill backa till föregående tillstånd:
 
 # Visa hela historiken över var HEAD pekat (alla tillstånd)
+
 git reflog
 
-# Återställ till hur det såg ut före senaste operationen
-git reset --hard HEAD@{1}   # Endast lokalt! Använd inte på pushad kod.
+# Återställ till hur det såg ut före senaste operationen # Endast lokalt! Använd inte på pushad kod.
+
+git reset --hard HEAD@{1}
 
 ---
 
@@ -372,10 +383,11 @@ reflog → visar hela din historik, även “osynliga” tillstånd.
 
 reset --hard HEAD@{1} → flyttar dig tillbaka till hur det såg ut innan allt strulade (men raderar ej-pushat arbete).
 
---------------------------------------------------
---------------------------------------------------
+---
 
-💻 Code-Along/Demo: Instruktioner Konflikt-demo 
+---
+
+💻 Code-Along/Demo:
 
 🧱 1. Förbered miljön (endast en gång)
 
@@ -383,12 +395,10 @@ I terminalen i VS Code (Ctrl + ö):
 
 git status
 
-
 👉 Kontrollera att du står på main
 Om inte:
 
 git switch main
-
 
 Uppdatera till senaste versionen (om ni är flera):
 
@@ -396,178 +406,226 @@ git pull
 
 ---
 
-⚙️ 2. Skapa övningsstruktur
+⚙️ Konflikt & merge
 
+Mål: Skapa och lösa en konflikt.
 
-# Skapa en enkel plats för konflikt-demon (valfri mapp)
+# 1) Skapa basfilen på main
 
 mkdir -p 01-konflikter-reset-revert
-cd 01-konflikter-reset-revert
+echo ".box { width: 300px; }" > 01-konflikter-reset-revert/index.css
+git add 01-konflikter-reset-revert/index.css
+git commit -m "Base: index.css width 300px on main"
 
-# Bara EN fil att jobba i:
-echo ".box { width: 200px; }" > index.css
-cd ..
+# 2) Skapa feature-branch och ändra samma rad
+
+git switch -c feature-konflikt-demo
+echo ".box { width: 200px; }" > 01-konflikter-reset-revert/index.css
+git add 01-konflikter-reset-revert/index.css
+git commit -m "Feature: index.css width 200px"
+
+# 3) Tillbaka till main och mergea in → konflikt
+
+git switch main
+git merge feature-konflikt-demo
+
+# --> VS Code visar konfliktmarkörer i index.css
+
+# <<<<<<< HEAD (din, 300px)
+
+# =======
+
+# >>>>>>> feature-konflikt-demo (200px)
+
+Lösning & avslut:
+
+# Lös i VS Code (Accept Current / Incoming / Both eller manuellt)
+
+git add 01-konflikter-reset-revert/index.css
+git commit -m "Resolve merge conflict (index.css width)"
+
+# Snabb koll:
+
+git log --graph --oneline --decorate
+
+# → ska visa en merge-commit
+
+# Om det låser sig:
+
+git merge --abort
 
 ---
 
-💻 3. Code-along del 1 – Konflikter
-
-Steg-för-steg i ditt repo:
-
-# 1. Stå på main
-git switch main
-
-# 2. Skapa en ny branch
-git switch -c feature-konflikt-demo
-
-Lägg till i index.css:
-
-.box {
-  width: 200px;
-}
-
-Commit:
-
-git add .
-git commit -m "Added width 200px"
-
-Byt tillbaka till main och ändra samma rad:
-
-git switch main
-# Ändra till 300px
-
-Commit igen:
-
-git add .
-git commit -m "Changed width to 300px"
-
-Merge nu in din branch:
-
-git merge feature-konflikt-demo
-
-🧨 Konflikt!
-
-Git visar nu konfliktmarkeringar i index.css:
-
-📝 Notis:
-HEAD = din nuvarande branchs senaste commit.
-Konfliktmarkörer:
-<<<<<<< HEAD    ← din version
-=======         ← skiljelinje
->>>>>>> other   ← inkommande version
-
-
-<<<<<<< HEAD
-width: 300px;
-=======
-width: 200px;
->>>>>>> feature-konflikt-demo
-
-
-Lös konflikten i VS Code → välj Accept Current / Accept Incoming / Accept Both, spara filen →
-
-git add index.css
-git commit -m "Resolved merge conflict"
-
---------------------------------------------------
---------------------------------------------------
-
-🔁 4. Code-along del 2 – Reset vs Revert
+🔁 Code-Along 2: Reset (före push) vs Revert (efter push)
 
 📝 Notis:
 reset ändrar historiken (lokalt) → använd före push.
 revert skapar en ny “anti-commit” → använd efter push.
 
-Stå kvar på main.
+Startläge: Stå kvar på main.
 
-Skapa några commits:
+Arbetskatalog: ren
+
+A) RESET (före push):
+
+# Skapa två commits
 
 echo "Rad 1" > notes.txt
-git add .
+git add notes.txt
 git commit -m "Add first line"
 
 echo "Rad 2" >> notes.txt
-git add .
+git add notes.txt
 git commit -m "Add second line"
 
-Testa reset (lokalt, före push)
+# Backa lokalt 1 commit (förklara att historiken skrivs om lokalt)
+
 git reset HEAD~1
 
-Kolla skillnaden i notes.txt och git log.
+# Visa resultat
 
-Testa revert (efter push)
+type notes.txt # Windows: 'type' (eller 'cat' om du har)
+git log --oneline
 
-Push först:
+B) REVERT (efter push):
+
+# Push krävs för att visa revert på delad historik
 
 git push origin main
 
-Sen:
+# Se till att arbetskatalogen är ren:
+
+git status
+
+# Om "modified": spara eller kasta:
+
+# git restore --source=HEAD -- notes.txt
+
+# eller
+
+# git stash push -m "temp before revert"
+
+# Revertar senaste commit (skapar en ny “anti-commit”)
 
 git revert HEAD
 git push origin main
 
-➡️ En ny commit skapas som tar bort senaste ändringen.
+git log --oneline -n 3 # → visar "Revert ..."
 
---------------------------------------------------
---------------------------------------------------
+Om det låser sig:
 
-🔄 5. Code-along del 3 – Rebase & Stash
+# Om lokala ändringar stoppar revert:
 
-Skapa en ny branch:
+git restore --source=HEAD -- notes.txt
+
+# kasta ändr.
+
+# eller:
+
+git stash push -m "temp"
+
+# ...sen
+
+git stash pop
+
+---
+
+---
+
+🔄 Code-Along 3: Rebase (interactive) & Stash
+
+Startläge:
+
+Branch: main
+
+Arbetskatalog: ren
+
+Steg:
+
+# 1) Skapa feature-branch och tre commits
 
 git switch -c feature-rebase-demo
-
-Gör tre commits:
-
-echo "Commit 1" > rebase.txt
-git add .
+echo "A" > rebase.txt
+git add rebase.txt
 git commit -m "First"
 
-echo "Commit 2" >> rebase.txt
-git add .
+echo "B" >> rebase.txt
+git add rebase.txt
 git commit -m "Second"
 
-echo "Commit 3" >> rebase.txt
-git add .
+echo "C" >> rebase.txt
+git add rebase.txt
 git commit -m "Third"
 
-Interaktiv rebase:
+# 2) Interaktiv rebase på dina 3 commits
+
+git status
+
+# måste vara ren (annars: git stash push -m "wip")
 
 git rebase -i HEAD~3
 
-Ändra ordning, squash eller reword i editorn.
+# Mini-guide i editorn (VS Code / GitLens):
 
-Avsluta rebase:
+Ändra raderna i listan:
 
-git rebase --continue
+pick First → reword (byt meddelande)
 
-Visa loggen:
+pick Second → squash (in i Third)
+
+pick Third → pick
+
+Klicka Start Rebase (GitLens) eller spara & stäng filen.
+
+När commit-meddelanderuta öppnas: skriv nytt → spara & stäng.
+
+Vid konflikt: lös i VS Code → git add <fil> → git rebase --continue.
+
+Koll:
 
 git log --oneline
 
-Stash-exempel:
+# → färre commits och/eller nya meddelanden
+
+# STASH-exempel (visa snabbt):
 
 echo "Oavslutad kod" >> rebase.txt
 git stash push -m "Work in progress"
 git stash list
 git stash pop
 
+# Om det låser sig:
+
+git rebase --abort
+
+# Börja om:
+
+git status
+git rebase -i HEAD~3
+
 ---
 
-Visa studenterna:
+Två vanliga hinder (och enkla fixes)
 
-git log --graph --oneline --decorate
+“Waiting for your editor to close the file…”
+→ Spara & stäng commit-meddelandefönstret / TODO-fliken.
+(Git väntar på att du ska bekräfta meddelandet.)
 
-Diskutera:
+“You have unstaged changes” (rebase) / “Your local changes would be overwritten” (revert/checkout)
 
-- Hur syns merge-commits?
+→ Gör arbetskatalogen ren:
 
-- Vad händer med historiken efter reset/revert/rebase?
+git restore .
+git clean -fd
 
---------------------------------------------------
---------------------------------------------------
+# varning: tar bort otrackat
+
+# eller spara:
+
+git stash push -m "wip"
+
+---
+
+---
 
 🧠 Övningar från slide 71 och 82 samt så finns också fler i exercises mappen
-
---------------------------------------------------
---------------------------------------------------
